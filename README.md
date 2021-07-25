@@ -2,9 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.13.
 
-## Working of project(front-end)
+## Working of project (Front-End)
 
 Open project & do `npm i` then`ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
+And you will be redirect to login page and there you will have to enter the credential , given by admin
+then you will be redirect to home and start the quiz. and start you will have some list of questions and you need to press submit button 
 The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
