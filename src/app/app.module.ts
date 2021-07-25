@@ -21,6 +21,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { QuizComponent } from './quiz/quiz.component';
     LeaderboardComponent,
     LoginComponent,
     HomeComponent,
-    QuizComponent
+    QuizComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
