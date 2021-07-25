@@ -16,6 +16,7 @@ The app will automatically reload if you change any of the source files.
 Open project , `cd api` & do `npm i` then`npm start` for a dev server. Navigate to `http://localhost:5000/`. 
 And you will be have to signup the user , even checking with the login using postman.
 push the number of question using the postman 
+following are examples of using different api
 
 
 1. API for User-registraion(POST) , kindly use POSTMAN to
