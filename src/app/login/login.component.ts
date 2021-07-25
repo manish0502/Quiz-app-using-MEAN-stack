@@ -1,5 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
+// import { NgForm } from "@angular/forms";
+// import { Router } from '@angular/router';
+
+// @Component({
+//   selector: 'app-login',
+//   templateUrl: './login.component.html',
+//   styleUrls: ['./login.component.css']
+// })
+// export class LoginComponent implements OnInit {
+//   isLoading = false;
+
+//   constructor(private router: Router) { }
+
+//   ngOnInit(): void {
+//   }
+
+//   onLogin(form:NgForm){
+//     console.log(form.value)
+//     this.isLoading = true;
+//     this.router.navigate(['home']);
+
+
+//   }
+
+// }
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from "@angular/forms";
+import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,20 +36,34 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
+  private authStatusSub: Subscription
 
-  constructor(private router: Router) { }
+  constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.router.events.subscribe((path) => {
+      window.scrollTo(0, 0);
+    });
+    this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
+      authStatus => {
+        this.isLoading = false;
+      }
+    );
   }
 
-  onLogin(form:NgForm){
-    console.log(form.value)
+  onLogin(form: NgForm) {
+    if (form.invalid) {
+      console.log('Error');
+      return;
+    }
     this.isLoading = true;
-    this.router.navigate(['home']);
-
-
+    this.authService.login(form.value.email, form.value.password);
   }
 
+  ngOnDestroy() {
+    this.authStatusSub.unsubscribe();
+  }
 }
+
