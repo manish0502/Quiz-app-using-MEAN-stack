@@ -18,7 +18,7 @@ And you will be have to signup the user , even checking with the login using pos
 push the number of question using the postman 
 
 
-`1. API for User-registraion(POST) , kindly use POSTMAN to
+1. API for User-registraion(POST) , kindly use POSTMAN to
 
         - visit : http://localhost:5000/api/auth/signup
         - body :
@@ -172,7 +172,7 @@ push the number of question using the postman
                                 "__v": 0
                             }
                         ]
-                    }`
+                    }
 
 
 The app will automatically reload if you change any of the source files.
