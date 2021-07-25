@@ -1,5 +1,5 @@
 // Description: User Authorization route
-// Author: AshwinSathian
+// Author: Manish Giri
 
 const express = require('express');
 const router = express.Router();
